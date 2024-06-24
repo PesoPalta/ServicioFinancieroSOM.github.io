@@ -217,6 +217,38 @@ export class AppDashboardComponent {
     },
   ];
 
+  // ecommerce card
+  productcards: productcards[] = [
+    {
+      id: 1,
+      imgSrc: '/assets/images/products/p1.jpg',
+      title: 'Audifono bote',
+      price: '250000',
+      rprice: '300000',
+    },
+    {
+      id: 2,
+      imgSrc: '/assets/images/products/p2.jpg',
+      title: 'MacBook Air Pro',
+      price: '450000',
+      rprice: '500000',
+    },
+    {
+      id: 3,
+      imgSrc: '/assets/images/products/p3.jpg',
+      title: 'Vestido color Red Velvet',
+      price: '28000',
+      rprice: '35000',
+    },
+    {
+      id: 4,
+      imgSrc: '/assets/images/products/p4.jpg',
+      title: 'Osito cariñosito Lotso version',
+      price: '20000',
+      rprice: '35000',
+    },
+  ];
+
   constructor() {
     // sales overview chart
     this.profitExpanceChart = {
@@ -292,8 +324,8 @@ export class AppDashboardComponent {
 
     // yearly breakup chart
     this.trafficChart = {
-      series: [10000, 26051],
-      labels: ['10,000', '26,051'],
+      series: [5368, 10000, 4106],
+      labels: ['5368', 'Trafico referencial', 'Trafico organico'],
       chart: {
         type: 'donut',
         fontFamily: "'Plus Jakarta Sans', sans-serif;",
@@ -303,7 +335,7 @@ export class AppDashboardComponent {
         },
         height: 160,
       },
-      colors: ['#fb977d', '#0085db'],
+      colors: ['#e7ecf0', '#fb977d', '#0085db'],
       plotOptions: {
         pie: {
           donut: {
