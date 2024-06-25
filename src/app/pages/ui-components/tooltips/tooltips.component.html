@@ -1,181 +1,124 @@
-<mat-card class="cardWithShadow theme-card">
-  <mat-card-header>
-    <mat-card-title class="m-b-0">Tooltips</mat-card-title>
-  </mat-card-header>
-  <mat-card-content class="b-t-1">
-    <div class="row">
-      <div class="col-lg-4 col-sm-6">
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Basic</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <button
-              mat-flat-button
-              color="primary"
-              matTooltip="Info about the action"
-            >
-              Button
-            </button>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Uppercase</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <button
-              mat-flat-button
-              color="primary"
-              matTooltip="Info about the action"
-              matTooltipClass="text-uppercase"
-            >
-              Button
-            </button>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      <div class="col-lg-4 col-sm-6">
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Disabled on click</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <button
-              mat-flat-button
-              color="primary"
-              matTooltip="Info about the action"
-              [matTooltipDisabled]="disabled.value"
-              class="m-r-8"
-            >
-              Action
-            </button>
-
-            <mat-checkbox
-              [formControl]="disabled"
-              class="example-disabled-checkbox"
-            >
-              Tooltip disabled
-            </mat-checkbox>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-      <div class="col-lg-6">
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Position</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <button
-              mat-flat-button
-              color="primary"
-              #tooltip="matTooltip"
-              matTooltip="Info about the action"
-              matTooltipPosition="below"
-              matTooltipHideDelay="100000"
-            >
-              Below
-            </button>
-            <button
-              mat-flat-button
-              color="accent"
-              #tooltip="matTooltip"
-              matTooltip="Info about the action"
-              matTooltipPosition="above"
-              class="m-l-8"
-              matTooltipHideDelay="100000"
-            >
-              Above
-            </button>
-            <button
-              mat-flat-button
-              color="warn"
-              #tooltip="matTooltip"
-              matTooltip="Info about the action"
-              matTooltipPosition="left"
-              class="m-l-8"
-              matTooltipHideDelay="100000"
-            >
-              Left
-            </button>
-            <button
-              mat-flat-button
-              color="primary"
-              #tooltip="matTooltip"
-              matTooltip="Info about the action"
-              matTooltipPosition="right"
-              class="m-l-8"
-              matTooltipHideDelay="100000"
-            >
-              Right
-            </button>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-      <div class="col-lg-6">
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Show and Hide</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <div class="row">
-              <div class="col-sm-4">
-                <mat-form-field class="w-100" appearance="outline">
-                  <mat-label>Show delay</mat-label>
-                  <input matInput type="number" [formControl]="showDelay" />
-                  <mat-hint>milliseconds</mat-hint>
-                </mat-form-field>
-              </div>
-              <div class="col-sm-4">
-                <mat-form-field class="w-100" appearance="outline">
-                  <mat-label>Hide delay</mat-label>
-                  <input matInput type="number" [formControl]="hideDelay" />
-                  <mat-hint>milliseconds</mat-hint>
-                </mat-form-field>
-              </div>
-              <div class="col-sm-4">
-                <button
-                  mat-flat-button
-                  color="primary"
-                  matTooltip="Info about the action"
-                  [matTooltipShowDelay]="showDelay.value"
-                  [matTooltipHideDelay]="hideDelay.value"
-                >
-                  Action
-                </button>
-              </div>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-      <div class="col-lg-4 col-sm-6">
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Change Message</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <mat-form-field class="w-100" appearance="outline">
-              <mat-label>Tooltip message</mat-label>
-              <input matInput [formControl]="message" />
-            </mat-form-field>
-
-            <button
-              mat-flat-button
-              color="primary"
-              [matTooltip]="message.value || ''"
-              aria-label="Button that displays a tooltip with a custom message"
-            >
-              Action
-            </button>
-          </mat-card-content>
-        </mat-card>
-      </div>
-      
-    </div>
-  </mat-card-content>
-</mat-card>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nómina de Usuarios</title>
+  <!-- Angular Material styles -->
+  <link rel="stylesheet" href="https://material.angular.io/assets/basic.css">
+  <!-- Custom styles -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #ffffff; /* Fondo blanco */
+      padding: 20px;
+      margin: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cardWithShadow {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      background-color: #fff; /* Fondo blanco */
+      border: none; /* Eliminar el borde oscuro */
+    }
+    .m-b-0 {
+      margin-bottom: 10px;
+      padding: 15px 20px;
+      font-size: 24px;
+      color: #333;
+    }
+    .b-t-1 {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+    .col {
+      padding: 0 15px;
+    }
+    .mat-form-field {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .mat-label {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    .mat-flat-button {
+      width: 100%;
+      margin-top: 20px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px 20px;
+    }
+    .button-container button {
+      flex: 1;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <mat-card class="cardWithShadow">
+      <mat-card-header>
+        <mat-card-title class="m-b-0">Nómina de usuarios</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="b-t-1">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Nombre</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <input matInput type="text" placeholder="Ingrese nombre">
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Apellido</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <input matInput type="text" placeholder="Ingrese apellido">
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Cantidad de meses</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <input matInput type="number" placeholder="Ingrese cantidad de meses">
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Salario total</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <input matInput type="number" placeholder="Ingrese salario total">
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <div class="button-container">
+          <button mat-flat-button color="primary" matTooltip="Guardar datos">Guardar</button>
+          <button mat-flat-button color="accent" matTooltip="Mostrar datos">Mostrar</button>
+          <button mat-flat-button color="warn" matTooltip="Editar datos">Editar</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</body>
+</html>

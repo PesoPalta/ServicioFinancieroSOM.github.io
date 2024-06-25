@@ -1,10 +1,120 @@
-<!-- ============================================================== -->
-<!-- Simple four boxes Row -->
-<!-- ============================================================== -->
-<mat-card class="cardWithShadow">
-    <mat-card-content>
-      <mat-card-title>Sample Page</mat-card-title>
-      <mat-card-subtitle class="mat-body-1">This is test page</mat-card-subtitle>
-    </mat-card-content>
-  </mat-card>
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informes</title>
+  <!-- Angular Material styles -->
+  <link rel="stylesheet" href="https://material.angular.io/assets/basic.css">
+  <!-- Custom styles -->
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cardWithShadow {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 20px;
+      width: 100%; /* Ancho completo */
+      max-width: 600px; /* Ancho máximo */
+      margin: 0 auto; /* Centrado horizontal */
+    }
+    .theme-card {
+      background-color: #fff;
+    }
+    .m-b-0 {
+      margin-bottom: 10px;
+      padding: 15px 20px;
+      font-size: 24px;
+      color: #333;
+    }
+    .b-t-1 {
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+    .col {
+      padding: 0 15px;
+    }
+    .mat-form-field {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    .mat-label {
+      font-size: 18px;
+      font-weight: bold;
+      color: #333;
+    }
+    .mat-flat-button {
+      width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <mat-card class="cardWithShadow theme-card">
+      <mat-card-header>
+        <mat-card-title class="m-b-0">Informes</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="b-t-1">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Nombre y Apellido Empleado</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <input matInput type="text" placeholder="Ingrese nombre y apellido">
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Turno</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <input matInput type="text" placeholder="Ingrese turno">
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Ventas Mensuales</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <input matInput type="number" placeholder="Ingrese ventas mensuales">
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <mat-card class="b-1 shadow-none">
+              <mat-card-header>
+                <mat-card-title>Rendimiento</mat-card-title>
+              </mat-card-header>
+              <mat-card-content class="b-t-1">
+                <mat-radio-group class="mat-radio-group">
+                  <mat-radio-button value="Bajo">Bajo</mat-radio-button>
+                  <mat-radio-button value="Correcto">Correcto</mat-radio-button>
+                  <mat-radio-button value="Alto">Alto</mat-radio-button>
+                </mat-radio-group>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" matTooltip="Guardar datos">Guardar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</body>
+</html>

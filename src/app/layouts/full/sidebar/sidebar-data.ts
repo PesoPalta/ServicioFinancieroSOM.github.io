@@ -40,7 +40,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Nómina', // PRD04-RF12
     iconName: 'tooltip',
-    route: '/ui-components/tooltips', // MATIGOP
+    route: '/ui-components/tooltips', // Listo
   },
   {
     navCap: 'Inicia sesión',
