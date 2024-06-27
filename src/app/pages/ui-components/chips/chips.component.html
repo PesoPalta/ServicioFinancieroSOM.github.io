@@ -1,161 +1,65 @@
 <mat-card class="cardWithShadow theme-card">
   <mat-card-header>
-    <mat-card-title class="m-b-0">Chips</mat-card-title>
+    <mat-card-title class="m-b-0">Tipos de Cuentas</mat-card-title>
   </mat-card-header>
   <mat-card-content class="b-t-1">
     <div class="row">
-      <div class="col-lg-6">
-        <!-- ------------------------------------------------------------------------- -->
-        <!-- basic -->
-        <!-- ------------------------------------------------------------------------- -->
 
+      <div class="col-lg-4">
         <mat-card class="b-1 shadow-none">
           <mat-card-header>
-            <mat-card-title>Basic</mat-card-title>
+            <mat-card-title>Cuenta Corriente</mat-card-title>
           </mat-card-header>
           <mat-card-content class="b-t-1">
-            <mat-chip-listbox aria-label="Fish selection">
-              <mat-chip-option class="f-s-14" color="primary"
-                >One fish</mat-chip-option
-              >
-              <mat-chip-option class="f-s-14">Two fish</mat-chip-option>
-              <mat-chip-option class="f-s-14" color="accent" selected
-                >Accent fish</mat-chip-option
-              >
-              <mat-chip-option class="f-s-14" color="warn"
-                >Warn fish</mat-chip-option
-              >
-            </mat-chip-listbox>
+            <p>Información de la Cuenta Corriente</p>
+            <p>Saldo: $XXX.XX</p> 
+            <mat-divider></mat-divider> <h4>Gestión Financiera</h4>
+            <ul>
+              <li>Últimos movimientos</li>
+              <li>Gráfico de gastos por categoría</li>
+              <li>Resumen mensual</li>
+            </ul>
           </mat-card-content>
         </mat-card>
       </div>
 
-      <div class="col-lg-6">
-        <!-- ------------------------------------------------------------------------- -->
-        <!-- avatar -->
-        <!-- ------------------------------------------------------------------------- -->
-
+      <div class="col-lg-4">
         <mat-card class="b-1 shadow-none">
           <mat-card-header>
-            <mat-card-title>Avatar</mat-card-title>
+            <mat-card-title>Cuenta de Crédito</mat-card-title>
           </mat-card-header>
           <mat-card-content class="b-t-1">
-            <mat-chip-listbox aria-label="Dog selection">
-              <mat-chip class="f-s-14">
-                <img
-                  matChipAvatar
-                  src="/assets/images/profile/user-1.jpg"
-                  alt="Photo of a Shiba Inu"
-                />
-                Anderson
-              </mat-chip>
-              <mat-chip class="f-s-14" color="primary">
-                <img
-                  matChipAvatar
-                  src="/assets/images/profile/user-2.jpg"
-                  alt="Photo of a Shiba Inu"
-                />
-                Monty
-              </mat-chip>
-              <mat-chip class="f-s-14" color="accent">
-                <img
-                  matChipAvatar
-                  src="/assets/images/profile/user-3.jpg"
-                  alt="Photo of a Shiba Inu"
-                />
-                Mathew
-              </mat-chip>
-            </mat-chip-listbox>
+            <p>Información de la Cuenta de Crédito</p>
+            <p>Saldo: $XXX.XX</p> 
+            <mat-divider></mat-divider> 
+            <h4>Gestión Financiera</h4>
+            <ul>
+              <li>Próximo pago</li>
+              <li>Tasa de interés</li>
+              <li>Límite de crédito</li>
+            </ul>
           </mat-card-content>
         </mat-card>
       </div>
 
-      <div class="col-lg-6">
-        <!-- ------------------------------------------------------------------------- -->
-        <!-- Drag n Drop -->
-        <!-- ------------------------------------------------------------------------- -->
-
+      <div class="col-lg-4">
         <mat-card class="b-1 shadow-none">
           <mat-card-header>
-            <mat-card-title>Drag n Drop</mat-card-title>
+            <mat-card-title>Cuenta de Ahorro</mat-card-title>
           </mat-card-header>
           <mat-card-content class="b-t-1">
-            <mat-chip-set
-              class="example-chip"
-              cdkDropList
-              cdkDropListOrientation="horizontal"
-              (cdkDropListDropped)="drop($event)"
-            >
-              <mat-chip
-                class="example-box f-s-14"
-                cdkDrag
-                *ngFor="let vegetable of vegetables"
-              >
-                {{ vegetable.name }}
-              </mat-chip>
-            </mat-chip-set>
+            <p>Información de la Cuenta de Ahorro</p>
+            <p>Saldo: $XXX.XX</p>
+            <mat-divider></mat-divider> 
+            <h4>Gestión Financiera</h4>
+            <ul>
+              <li>Intereses acumulados</li>
+              <li>Metas de ahorro</li>
+              <li>Simulador de inversión</li>
+            </ul>
           </mat-card-content>
         </mat-card>
       </div>
 
-      <div class="col-lg-6">
-        <!-- ------------------------------------------------------------------------- -->
-        <!-- Stacked  -->
-        <!-- ------------------------------------------------------------------------- -->
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Stacked </mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-label="Color selection">
-              <mat-chip-option *ngFor="let chip of availableColors" selected [color]="chip.color">
-                {{chip.name}}
-              </mat-chip-option>
-            </mat-chip-listbox>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-      <div class="col-12">
-        <!-- ------------------------------------------------------------------------- -->
-        <!-- Input -->
-        <!-- ------------------------------------------------------------------------- -->
-
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Input</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <mat-form-field appearance="outline" class="w-100">
-              <mat-label>Favorite Fruits</mat-label>
-              <mat-chip-grid #chipGrid aria-label="Enter fruits">
-                <mat-chip-row
-                  *ngFor="let fruit of fruits"
-                  (removed)="remove(fruit)"
-                  [editable]="true"
-                  (edited)="edit(fruit, $event)"
-                  [aria-description]="'press enter to edit ' + fruit.name" class="f-s-14"
-                >
-                  {{ fruit.name }}
-                  <button
-                    matChipRemove
-                    [attr.aria-label]="'remove ' + fruit.name"
-                  >
-                    <mat-icon>cancel</mat-icon>
-                  </button>
-                </mat-chip-row>
-                <input
-                  placeholder="New fruit..."
-                  [matChipInputFor]="chipGrid"
-                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                  [matChipInputAddOnBlur]="addOnBlur"
-                  (matChipInputTokenEnd)="add($event)"
-                />
-              </mat-chip-grid>
-            </mat-form-field>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-  </mat-card-content>
+    </div> </mat-card-content>
 </mat-card>
