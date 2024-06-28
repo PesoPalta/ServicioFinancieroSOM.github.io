@@ -1,184 +1,276 @@
-<mat-card class="cardWithShadow theme-card">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión Financiera</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/12.0.0/material-components-web.min.css">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #4CAF50;
+      padding: 10px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 0 15px;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      padding: 20px;
+    }
+    .cardWithShadow {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      background-color: white;
+      border-radius: 8px;
+    }
+    .theme-card {
+      padding: 20px;
+    }
+    .stat-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .stat-title {
+      font-weight: bold;
+    }
+    .stat-value {
+      color: #4CAF50;
+      font-weight: bold;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 0;
+      background-color: #4CAF50;
+      color: white;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+    }
+    .btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- Barra de Navegación -->
+<div class="navbar">
+  <div>Gestión Financiera</div>
+  <div>
+    <a href="#resumen">Resumen</a>
+    <a href="#movimientos">Movimientos</a>
+    <a href="#accesos">Accesos</a>
+    <a href="#graficos">Gráficos</a>
+    <a href="#metas">Metas de Ahorro</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#boletas">Boletas</a>
+  </div>
+</div>
+
+<div class="container">
+  
+<mat-card class="cardWithShadow theme-card" id="resumen">
   <mat-card-header>
-    <mat-card-title class="m-b-0">Lists</mat-card-title>
+    <mat-card-title class="m-b-0">Gestión Financiera</mat-card-title>
   </mat-card-header>
   <mat-card-content class="b-t-1">
     <div class="row">
+      
+      <!-- Sección de Saldo -->
       <div class="col-lg-6">
-        <!-- --------------------------------------------------- -->
-        <!-- basic -->
-        <!-- --------------------------------------------------- -->
         <mat-card class="b-1 shadow-none">
           <mat-card-header>
-            <mat-card-title>Basic</mat-card-title>
+            <mat-card-title>Saldo Actual</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <div class="stat-card">
+              <div class="stat-title">Saldo Disponible</div>
+              <div class="stat-value">$5,000,000 CLP</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-title">Saldo en Cuentas</div>
+              <div class="stat-value">$10,000,000 CLP</div>
+            </div>
+            <button class="btn" onclick="toggleSection('movimientos')">Ver Movimientos</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Sección de Movimientos -->
+      <div class="col-lg-6" id="movimientos" style="display: none;">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Movimientos Recientes</mat-card-title>
           </mat-card-header>
           <mat-card-content class="b-t-1">
             <mat-list role="list">
-              <mat-list-item role="listitem">Item 1</mat-list-item>
-              <mat-list-item role="listitem">Item 2</mat-list-item>
-              <mat-list-item role="listitem">Item 3</mat-list-item>
+              <mat-list-item role="listitem">Depósito - $1,000,000 CLP</mat-list-item>
+              <mat-list-item role="listitem">Pago de Servicio - $200,000 CLP</mat-list-item>
+              <mat-list-item role="listitem">Transferencia - $500,000 CLP</mat-list-item>
+            </mat-list>
+            <button class="btn" onclick="toggleSection('accesos')">Ver Accesos Detallados</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Sección de Accesos Detallados -->
+      <div class="col-lg-12" id="accesos" style="display: none;">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Accesos Detallados</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <mat-list role="list">
+              <mat-list-item role="listitem">Acceso 1 - 25/06/2024</mat-list-item>
+              <mat-list-item role="listitem">Acceso 2 - 24/06/2024</mat-list-item>
+              <mat-list-item role="listitem">Acceso 3 - 23/06/2024</mat-list-item>
             </mat-list>
           </mat-card-content>
         </mat-card>
       </div>
 
-      <div class="col-lg-6">
-        <!-- --------------------------------------------------- -->
-        <!-- two line -->
-        <!-- --------------------------------------------------- -->
+      <!-- Sección de Gráficos -->
+      <div class="col-lg-12" id="graficos">
         <mat-card class="b-1 shadow-none">
           <mat-card-header>
-            <mat-card-title>Two Line</mat-card-title>
+            <mat-card-title>Gráficos Financieros</mat-card-title>
           </mat-card-header>
           <mat-card-content class="b-t-1">
-            <mat-list>
-              <mat-list-item>
-                <span matListItemTitle class="f-s-16 f-w-600">Title</span>
-                <span matListItemLine class="mat-body-1">Second line</span>
-              </mat-list-item>
-              <mat-list-item>
-                <span matListItemTitle class="f-s-16 f-w-600">Title</span>
-                <span matListItemLine class="mat-body-1">Second line</span>
-              </mat-list-item>
+            <canvas id="myChart"></canvas>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Sección de Metas de Ahorro -->
+      <div class="col-lg-12" id="metas">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Metas de Ahorro</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <div class="stat-card">
+              <div class="stat-title">Meta 1</div>
+              <div class="stat-value">$2,000,000 CLP</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-title">Meta 2</div>
+              <div class="stat-value">$3,000,000 CLP</div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Sección de Noticias Financieras -->
+      <div class="col-lg-12" id="noticias">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Noticias Financieras</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <mat-list role="list">
+              <mat-list-item role="listitem">Noticia 1 - Nueva Ley Financiera</mat-list-item>
+              <mat-list-item role="listitem">Noticia 2 - Cambios en las Tasas de Interés</mat-list-item>
+              <mat-list-item role="listitem">Noticia 3 - Tendencias del Mercado</mat-list-item>
             </mat-list>
           </mat-card-content>
         </mat-card>
       </div>
 
-      <div class="col-lg-6">
-        <!-- --------------------------------------------------- -->
-        <!-- two line -->
-        <!-- --------------------------------------------------- -->
+      <!-- Sección de Listado de Boletas -->
+      <div class="col-lg-12" id="boletas">
         <mat-card class="b-1 shadow-none">
           <mat-card-header>
-            <mat-card-title>Three Line</mat-card-title>
+            <mat-card-title>Listado de Boletas</mat-card-title>
           </mat-card-header>
           <mat-card-content class="b-t-1">
-            <mat-list>
-              <mat-list-item>
-                <span matListItemTitle class="f-s-16 f-w-600">Title</span>
-                <span matListItemLine class="mat-body-1">Second line</span>
-                <span matListItemLine class="mat-body-1">Third line</span>
-              </mat-list-item>
-              <mat-list-item>
-                <span matListItemTitle class="f-s-16 f-w-600">Title</span>
-                <span matListItemLine class="mat-body-1"
-                  >Second line. This line will truncate.</span
-                >
-                <span class="mat-body-1">Third line</span>
-              </mat-list-item>
+            <mat-list role="list">
+              <mat-list-item role="listitem">Boleta 1 - 25/06/2024 - $50,000 CLP</mat-list-item>
+              <mat-list-item role="listitem">Boleta 2 - 24/06/2024 - $30,000 CLP</mat-list-item>
+              <mat-list-item role="listitem">Boleta 3 - 23/06/2024 - $20,000 CLP</mat-list-item>
+              <mat-list-item role="listitem">Boleta 4 - 22/06/2024 - $10,000 CLP</mat-list-item>
             </mat-list>
           </mat-card-content>
         </mat-card>
       </div>
 
-      <div class="col-lg-6">
-        <!-- --------------------------------------------------- -->
-        <!-- two line -->
-        <!-- --------------------------------------------------- -->
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>Three Line with Text wrapping</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <mat-list style="max-width: 500px">
-              <mat-list-item lines="3">
-                <span matListItemTitle class="f-s-16 f-w-600">Title</span>
-                <span class="mat-body-1"
-                  >Secondary line that will wrap because the list lines is
-                  explicitly set to 3 lines. Text inside of a `matListItemTitle`
-                  or `matListItemLine` will never wrap.
-                </span>
-              </mat-list-item>
-              <mat-list-item lines="3" class="mat-body-1">
-                <span matListItemTitle class="f-s-16 f-w-600">Title</span>
-                <span class="mat-body-1"
-                  >Secondary line that will wrap because the list lines is
-                  explicitly set to 3 lines. Text inside of a `matListItemTitle`
-                  or `matListItemLine` will never wrap.
-                </span>
-              </mat-list-item>
-            </mat-list>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-      <div class="col-lg-6">
-        <!-- --------------------------------------------------- -->
-        <!-- List with Selection -->
-        <!-- --------------------------------------------------- -->
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>List with Selection</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <mat-selection-list #shoes>
-              <mat-list-option *ngFor="let shoe of typesOfShoes">
-                {{ shoe }}
-              </mat-list-option>
-            </mat-selection-list>
-
-            <p class="mat-subtitle-2 f-w-600 p-16 bg-light-primary rounded">
-              Options selected: {{ shoes.selectedOptions.selected.length }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-      <div class="col-lg-6">
-        <!-- --------------------------------------------------- -->
-        <!-- List with single Selection -->
-        <!-- --------------------------------------------------- -->
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>List with single Selection</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <mat-selection-list #shoes2 [multiple]="false">
-              <mat-list-option *ngFor="let shoe of typesOfShoes" [value]="shoe">
-                {{ shoe }}
-              </mat-list-option>
-            </mat-selection-list>
-
-            <p class="mat-subtitle-2 f-w-600 p-16 bg-light-primary rounded">
-              Option selected:
-              {{
-                shoes2.selectedOptions.hasValue()
-                  ? shoes2.selectedOptions.selected[0].value
-                  : "None"
-              }}
-            </p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-
-      <div class="col-12">
-        <!-- --------------------------------------------------- -->
-        <!-- List with sections -->
-        <!-- --------------------------------------------------- -->
-        <mat-card class="b-1 shadow-none">
-          <mat-card-header>
-            <mat-card-title>List with sections</mat-card-title>
-          </mat-card-header>
-          <mat-card-content class="b-t-1">
-            <mat-list>
-              <div mat-subheader class="mat-body-2 m-b-16 f-w-600">Folders</div>
-              <mat-list-item *ngFor="let folder of folders">
-                <mat-icon matListItemIcon>folder</mat-icon>
-                <div matListItemTitle class="mat-body-2 f-w-600">{{ folder.name }}</div>
-                <div matListItemLine class="f-s-14 mat-body-1">{{ folder.updated | date }}</div>
-              </mat-list-item>
-              <mat-divider></mat-divider>
-              <div mat-subheader class="mat-body-2 m-y-16 f-w-600">Notes</div>
-              <mat-list-item *ngFor="let note of notes">
-                <mat-icon matListItemIcon>note</mat-icon>
-                <div matListItemTitle class="mat-body-2 f-w-600">{{ note.name }}</div>
-                <div matListItemLine class="f-s-14 mat-body-1">{{ note.updated | date }}</div>
-              </mat-list-item>
-            </mat-list>
-          </mat-card-content>
-        </mat-card>
-      </div>
     </div>
   </mat-card-content>
 </mat-card>
+
+<script>
+  function toggleSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section.style.display === 'none') {
+      section.style.display = 'block';
+    } else {
+      section.style.display = 'none';
+    }
+  }
+
+  // Configuración de un gráfico usando Chart.js
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+      datasets: [{
+        label: 'Saldo Mensual',
+        data: [12000000, 15000000, 13000000, 17000000, 16000000],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            callback: function(value) {
+              return '$' + value.toLocaleString('es-CL') + ' CLP';
+            }
+          }
+        }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              let label = context.dataset.label || '';
+              if (label) {
+                label += ': ';
+              }
+              label += '$' + context.raw.toLocaleString('es-CL') + ' CLP';
+              return label;
+            }
+          }
+        }
+      }
+    }
+  });
+</script>
+
+</div>
+
+</body>
+</html>
