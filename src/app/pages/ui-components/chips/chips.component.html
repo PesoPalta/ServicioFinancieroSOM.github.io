@@ -157,7 +157,7 @@
                 <span class="stat-value">$50,000, $20,000, $100,000</span>
               </div>
               <button class="btn" onclick="toggleDetails('detailsCorriente')">Ver más detalles</button>
-              <div id="detailsCorriente" class="details">
+              <div id="detailsCorriente" class="details" style="display: none;">
                 <h4>Detalles adicionales</h4>
                 <ul>
                   <li>Movimiento 1: Compra en supermercado - $50,000</li>
@@ -199,7 +199,7 @@
                 <span class="stat-value">$5,000,000 CLP</span>
               </div>
               <button class="btn" onclick="toggleDetails('detailsCredito')">Ver más detalles</button>
-              <div id="detailsCredito" class="details">
+              <div id="detailsCredito" class="details" style="display: none;">
                 <h4>Detalles adicionales</h4>
                 <ul>
                   <li>Pago de tarjeta: $200,000 CLP el 01/07/2024</li>
@@ -232,70 +232,73 @@
                 <span class="stat-title">Intereses acumulados:</span>
                 <span class="stat-value">$5,000 CLP (último mes)</span>
               </div>
-              <button class="btn" onclick="toggle details('detailsAhorro')">Ver más detalles</button>
-              <div id="detailsAhorro" class="details">
-              <h4>Detalles adicionales</h4>
-              <ul>
-              <li>Depósito inicial: $200,000 CLP</li>
-              <li>Intereses mensuales: $5,000 CLP</li>
-              <li>Retiros recientes: $50,000 CLP</li>
-              </ul>
-              <div class="payment-options">
-              <h4>Opciones de Pago</h4>
-              <button class="btn" onclick="alert('Depósito realizado exitosamente!')">Realizar Depósito</button>
-              <button class="btn" onclick="alert('Transferencia realizada exitosamente!')">Transferir Fondos</button>
-              <button class="btn" onclick="alert('Pago de servicios realizado!')">Pagar Servicios</button>
-              </div>
-              </div>
-              </mat-card-content>
-              </mat-card>
-              </div>
-          
-                </div>
-              </mat-card-content>
-                </mat-card>
-                <!-- Detalles de Tarjetas -->
-                <div class="card-details">
-                  <h3>Detalles de Tarjetas</h3>
-                  <div class="row">
-                    <div class="col-lg-6">
-                      <mat-card class="b-1 shadow-none">
-                        <mat-card-header>
-                          <mat-card-title>Tarjeta de Débito</mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="b-t-1">
-                          <p>Número de Tarjeta: 1234-5678-9012-3456</p>
-                          <p>Fecha de Vencimiento: 12/25</p>
-                          <p>Código de Seguridad: 123</p>
-                          <button class="btn" onclick="alert('Tarjeta de Débito bloqueada!')">Bloquear Tarjeta</button>
-                        </mat-card-content>
-                      </mat-card>
-                    </div>
-                    <div class="col-lg-6">
-                      <mat-card class="b-1 shadow-none">
-                        <mat-card-header>
-                          <mat-card-title>Tarjeta de Crédito</mat-card-title>
-                        </mat-card-header>
-                        <mat-card-content class="b-t-1">
-                          <p>Número de Tarjeta: 9876-5432-1098-7654</p>
-                          <p>Fecha de Vencimiento: 09/27</p>
-                          <p>Código de Seguridad: 456</p>
-                          <button class="btn" onclick="alert('Tarjeta de Crédito bloqueada!')">Bloquear Tarjeta</button>
-                        </mat-card-content>
-                      </mat-card>
-                    </div>
-                  </div>
+              <button class="btn" onclick="toggleDetails('detailsAhorro')">Ver más detalles</button>
+              <div id="detailsAhorro" class="details" style="display: none;">
+                <h4>Detalles adicionales</h4>
+                <ul>
+                  <li>Depósito inicial: $200,000 CLP</li>
+                  <li>Intereses mensuales: $5,000 CLP</li>
+                  <li>Retiros recientes: $50,000 CLP</li>
+                </ul>
+                <div class="payment-options">
+                  <h4>Opciones de Pago</h4>
+                  <button class="btn" onclick="alert('Depósito realizado exitosamente!')">Realizar Depósito</button>
+                  <button class="btn" onclick="alert('Transferencia realizada exitosamente!')">Transferir Fondos</button>
+                  <button class="btn" onclick="alert('Pago de servicios realizado!')">Pagar Servicios</button>
                 </div>
               </div>
-              <script>
-                function toggleDetails(id) {
-                  var details = document.getElementById(id);
-                  if (details.style.display === "none") {
-                    details.style.display = "block";
-                  } else {
-                    details.style.display = "none";
-                  }
-                }
-              </script>
-              </body>
-              </html>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Detalles de Tarjetas -->
+  <div class="card-details">
+    <h3>Detalles de Tarjetas</h3>
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Tarjeta de Débito</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <p>Número de Tarjeta: 1234-5678-9012-3456</p>
+            <p>Fecha de Vencimiento: 12/25</p>
+            <p>Código de Seguridad: 123</p>
+            <button class="btn" onclick="alert('Tarjeta de Débito bloqueada!')">Bloquear Tarjeta</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-6">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Tarjeta de Crédito</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <p>Número de Tarjeta: 9876-5432-1098-7654</p>
+            <p>Fecha de Vencimiento: 09/27</p>
+            <p>Código de Seguridad: 456</p>
+            <button class="btn" onclick="alert('Tarjeta de Crédito bloqueada!')">Bloquear Tarjeta</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleDetails(id) {
+    var details = document.getElementById(id);
+    if (details.style.display === "none") {
+      details.style.display = "block";
+    } else {
+      details.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

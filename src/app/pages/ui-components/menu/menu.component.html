@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión Financiera</title>
+  <title>Gestión de Facturas</title>
   <style>
     body {
       font-family: 'Roboto', sans-serif;
@@ -12,7 +12,7 @@
       padding: 0;
     }
     .navbar {
-      background-color: #4CAF50;
+      background-color: #0000FF; /* Cambiado a azul */
       padding: 10px;
       color: white;
       display: flex;
@@ -32,7 +32,7 @@
     }
     .invoice-card {
       background-color: #f9f9f9;
-      border-left: 5px solid #4CAF50;
+      border-left: 5px solid #0000FF; /* Cambiado a azul */
       padding: 15px;
       margin-bottom: 15px;
       border-radius: 5px;
@@ -54,67 +54,125 @@
       font-size: 0.9em;
       color: #666;
     }
+    .add-invoice-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .add-invoice-form input, .add-invoice-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .add-invoice-form button {
+      background-color: #0000FF; /* Cambiado a azul */
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .add-invoice-form button:hover {
+      background-color: #0000CD; /* Azul oscuro */
+    }
   </style>
 </head>
 <body>
 
 <!-- Barra de Navegación -->
 <div class="navbar">
-  <div>Gestión Financiera</div>
+  <div>Gestión de Facturas</div>
   <div>
-    <a href="#boletas">Boletas</a>
+    <a href="#nueva-factura">Nueva Factura</a>
+    <a href="#historial-facturas">Historial de Facturas</a>
   </div>
 </div>
 
 <div class="container">
 
-<!-- Sección de Listado de Boletas -->
-<div class="invoice-card" id="boletas">
-  <div class="invoice-header">
-    <div>
-      <span class="invoice-date">Fecha: 25/06/2024</span>
-    </div>
-    <div>
-      <span class="invoice-total">Total: $500,000 CLP</span>
-    </div>
-  </div>
-  <div class="invoice-details">
-    <div><strong>Cliente:</strong> Juan Pérez</div>
-    <div><strong>Descripción:</strong> Compra de equipo de oficina</div>
-    <div><strong>Estado:</strong> Pendiente</div>
-  </div>
+<!-- Sección para Agregar Nueva Factura -->
+<div class="add-invoice-form" id="nueva-factura">
+  <h2>Agregar Nueva Factura</h2>
+  <form>
+    <label for="cliente">Cliente:</label>
+    <input type="text" id="cliente" name="cliente" required>
+    
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" required></textarea>
+    
+    <label for="total">Total:</label>
+    <input type="number" id="total" name="total" required>
+    
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required>
+    
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado" required>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Pagada">Pagada</option>
+    </select>
+    
+    <button type="submit">Agregar Factura</button>
+  </form>
 </div>
 
-<div class="invoice-card">
-  <div class="invoice-header">
-    <div>
-      <span class="invoice-date">Fecha: 24/06/2024</span>
-    </div>
-    <div>
-      <span class="invoice-total">Total: $300,000 CLP</span>
-    </div>
-  </div>
-  <div class="invoice-details">
-    <div><strong>Cliente:</strong> María López</div>
-    <div><strong>Descripción:</strong> Pago de servicios varios</div>
-    <div><strong>Estado:</strong> Pagada</div>
-  </div>
-</div>
+<!-- Sección de Historial de Facturas -->
+<div id="historial-facturas">
+  <h2>Historial de Facturas</h2>
 
-<div class="invoice-card">
-  <div class="invoice-header">
-    <div>
-      <span class="invoice-date">Fecha: 23/06/2024</span>
+  <!-- Ejemplo de Factura -->
+  <div class="invoice-card">
+    <div class="invoice-header">
+      <div>
+        <span class="invoice-date">Fecha: 25/06/2024</span>
+      </div>
+      <div>
+        <span class="invoice-total">Total: $500,000 CLP</span>
+      </div>
     </div>
-    <div>
-      <span class="invoice-total">Total: $700,000 CLP</span>
+    <div class="invoice-details">
+      <div><strong>Cliente:</strong> Juan Pérez</div>
+      <div><strong>Descripción:</strong> Compra de equipo de oficina</div>
+      <div><strong>Estado:</strong> Pendiente</div>
     </div>
   </div>
-  <div class="invoice-details">
-    <div><strong>Cliente:</strong> Carlos González</div>
-    <div><strong>Descripción:</strong> Compra de suministros</div>
-    <div><strong>Estado:</strong> Pagada</div>
+
+  <div class="invoice-card">
+    <div class="invoice-header">
+      <div>
+        <span class="invoice-date">Fecha: 24/06/2024</span>
+      </div>
+      <div>
+        <span class="invoice-total">Total: $300,000 CLP</span>
+      </div>
+    </div>
+    <div class="invoice-details">
+      <div><strong>Cliente:</strong> María López</div>
+      <div><strong>Descripción:</strong> Pago de servicios varios</div>
+      <div><strong>Estado:</strong> Pagada</div>
+    </div>
   </div>
+
+  <div class="invoice-card">
+    <div class="invoice-header">
+      <div>
+        <span class="invoice-date">Fecha: 23/06/2024</span>
+      </div>
+      <div>
+        <span class="invoice-total">Total: $700,000 CLP</span>
+      </div>
+    </div>
+    <div class="invoice-details">
+      <div><strong>Cliente:</strong> Carlos González</div>
+      <div><strong>Descripción:</strong> Compra de suministros</div>
+      <div><strong>Estado:</strong> Pagada</div>
+    </div>
+  </div>
+  
 </div>
 
 </div>
