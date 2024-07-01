@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Boletas</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar {
+      background-color: #0000FF; /* Azul */
+      padding: 10px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 0 15px;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      padding: 20px;
+    }
+    .invoice-card {
+      background-color: #f9f9f9;
+      border-left: 5px solid #0000FF; /* Azul */
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+    }
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .invoice-details {
+      margin-top: 10px;
+    }
+    .invoice-total {
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #333;
+    }
+    .invoice-date {
+      font-size: 0.9em;
+      color: #666;
+    }
+    .add-invoice-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .add-invoice-form input, .add-invoice-form textarea, .add-invoice-form select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .add-invoice-form button {
+      background-color: #0000FF; /* Azul */
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .add-invoice-form button:hover {
+      background-color: #0000CD; /* Azul oscuro */
+    }
+    .filter-form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    .filter-form input, .filter-form select {
+      width: calc(50% - 10px);
+      padding: 10px;
+      margin: 10px 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .filter-form button {
+      background-color: #0000FF; /* Azul */
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .filter-form button:hover {
+      background-color: #0000CD; /* Azul oscuro */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barra de Navegación -->
+<div class="navbar">
+  <div>Gestión de Boletas</div>
+  <div>
+    <a href="#nueva-boleta">Nueva Boleta</a>
+    <a href="#historial-boletas">Historial de Boletas</a>
+    <a href="#reportes">Reportes</a>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- Sección para Agregar Nueva Boleta -->
+<div class="add-invoice-form" id="nueva-boleta">
+  <h2>Agregar Nueva Boleta</h2>
+  <form>
+    <label for="cliente">Cliente:</label>
+    <input type="text" id="cliente" name="cliente" required>
+    
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" required></textarea>
+    
+    <label for="total">Total:</label>
+    <input type="number" id="total" name="total" required>
+    
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required>
+    
+    <label for="estado">Estado:</label>
+    <select id="estado" name="estado" required>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Pagada">Pagada</option>
+    </select>
+
+    <label for="archivo">Adjuntar Documento:</label>
+    <input type="file" id="archivo" name="archivo">
+
+    <button type="submit">Agregar Boleta</button>
+  </form>
+</div>
+
+<!-- Sección de Filtro de Boletas -->
+<div class="filter-form">
+  <h2>Filtrar Boletas</h2>
+  <form>
+    <input type="text" placeholder="Buscar por cliente...">
+    <input type="date" placeholder="Fecha desde...">
+    <input type="date" placeholder="Fecha hasta...">
+    <select>
+      <option value="">Seleccionar estado</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Pagada">Pagada</option>
+    </select>
+    <button type="submit">Filtrar</button>
+  </form>
+</div>
+
+<!-- Sección de Historial de Boletas -->
+<div id="historial-boletas">
+  <h2>Historial de Boletas</h2>
+
+  <!-- Ejemplo de Boleta -->
+  <div class="invoice-card">
+    <div class="invoice-header">
+      <div>
+        <span class="invoice-date">Fecha: 25/06/2024</span>
+      </div>
+      <div>
+        <span class="invoice-total">Total: $500,000 CLP</span>
+      </div>
+    </div>
+    <div class="invoice-details">
+      <div><strong>Cliente:</strong> Juan Pérez</div>
+      <div><strong>Descripción:</strong> Compra de equipo de oficina</div>
+      <div><strong>Estado:</strong> Pendiente</div>
+    </div>
+  </div>
+
+  <div class="invoice-card">
+    <div class="invoice-header">
+      <div>
+        <span class="invoice-date">Fecha: 24/06/2024</span>
+      </div>
+      <div>
+        <span class="invoice-total">Total: $300,000 CLP</span>
+      </div>
+    </div>
+    <div class="invoice-details">
+      <div><strong>Cliente:</strong> María López</div>
+      <div><strong>Descripción:</strong> Pago de servicios varios</div>
+      <div><strong>Estado:</strong> Pagada</div>
+    </div>
+  </div>
+
+  <div class="invoice-card">
+    <div class="invoice-header">
+      <div>
+        <span class="invoice-date">Fecha: 23/06/2024</span>
+      </div>
+      <div>
+        <span class="invoice-total">Total: $700,000 CLP</span>
+      </div>
+    </div>
+    <div class="invoice-details">
+      <div><strong>Cliente:</strong> Carlos González</div>
+      <div><strong>Descripción:</strong> Compra de suministros</div>
+      <div><strong>Estado:</strong> Pagada</div>
+    </div>
+  </div>
+  
+</div>
+
+<!-- Sección de Reportes -->
+<div id="reportes">
+  <h2>Generar Reportes</h2>
+  <form>
+    <input type="date" placeholder="Fecha desde...">
+    <input type="date" placeholder="Fecha hasta...">
+    <select>
+      <option value="">Seleccionar estado</option>
+      <option value="Pendiente">Pendiente</option>
+      <option value="Pagada">Pagada</option>
+    </select>
+    <button type="submit">Generar Reporte</button>
+  </form>
+</div>
+
+</div>
+
+</body>
+</html>
