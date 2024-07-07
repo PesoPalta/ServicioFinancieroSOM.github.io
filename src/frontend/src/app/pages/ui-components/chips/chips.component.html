@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tipos de Cuentas - Gestión Financiera</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/12.0.0/material-components-web.min.css">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    .cardWithShadow {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+    }
+    .theme-card {
+      padding: 20px;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      color: #0D47A1;
+      font-size: 2.5em;
+    }
+    .stat-card {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .stat-title {
+      font-weight: bold;
+      color: #555;
+    }
+    .stat-value {
+      color: #0D47A1;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px 0;
+      background-color: #0D47A1;
+      color: white;
+      text-align: center;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 4px;
+    }
+    .btn:hover {
+      background-color: #01579B;
+    }
+    .details {
+      margin-top: 10px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: #f9f9f9;
+    }
+    .details h4 {
+      margin-top: 0;
+      color: #0D47A1;
+    }
+    .details ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .details li {
+      margin-bottom: 5px;
+    }
+    .payment-options {
+      margin-top: 20px;
+    }
+    .payment-options button {
+      margin: 5px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .col-lg-4 {
+      flex: 1;
+      max-width: 30%;
+      box-sizing: border-box;
+      padding: 15px;
+    }
+    .card-details {
+      background-color: #e3f2fd;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .card-details h3 {
+      margin-top: 0;
+      color: #0D47A1;
+    }
+    .card-details button {
+      background-color: #FF9800;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .card-details button:hover {
+      background-color: #E68900;
+    }
+  </style>
+</head>
+<body>
+  
+<div class="container">
+  <div class="header">
+    <h1>Tipos de Cuentas</h1>
+    <p>Gestión Financiera Personalizada</p>
+  </div>
+
+  <mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+      <mat-card-title class="m-b-0">Tipos de Cuentas</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+      <div class="row">
+        
+        <!-- Cuenta Corriente -->
+        <div class="col-lg-4">
+          <mat-card class="b-1 shadow-none">
+            <mat-card-header>
+              <mat-card-title>Cuenta Corriente</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="b-t-1">
+              <p>Información de la Cuenta Corriente</p>
+              <div class="stat-card">
+                <span class="stat-title">Saldo:</span>
+                <span class="stat-value">$3,000,000 CLP</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-title">Últimos movimientos:</span>
+                <span class="stat-value">$50,000, $20,000, $100,000</span>
+              </div>
+              <button class="btn" onclick="toggleDetails('detailsCorriente')">Ver más detalles</button>
+              <div id="detailsCorriente" class="details" style="display: none;">
+                <h4>Detalles adicionales</h4>
+                <ul>
+                  <li>Movimiento 1: Compra en supermercado - $50,000</li>
+                  <li>Movimiento 2: Pago de servicios - $20,000</li>
+                  <li>Movimiento 3: Renta - $100,000</li>
+                </ul>
+                <div class="payment-options">
+                  <h4>Opciones de Pago</h4>
+                  <button class="btn" onclick="alert('Pago de factura realizado!')">Pagar Factura</button>
+                  <button class="btn" onclick="alert('Transferencia de fondos realizada!')">Transferir Fondos</button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+        <!-- Cuenta de Crédito -->
+        <div class="col-lg-4">
+          <mat-card class="b-1 shadow-none">
+            <mat-card-header>
+              <mat-card-title>Cuenta de Crédito</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="b-t-1">
+              <p>Información de la Cuenta de Crédito</p>
+              <div class="stat-card">
+                <span class="stat-title">Saldo:</span>
+                <span class="stat-value">$1,500,000 CLP</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-title">Próximo pago:</span>
+                <span class="stat-value">$200,000 CLP</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-title">Tasa de interés:</span>
+                <span class="stat-value">2.5%</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-title">Límite de crédito:</span>
+                <span class="stat-value">$5,000,000 CLP</span>
+              </div>
+              <button class="btn" onclick="toggleDetails('detailsCredito')">Ver más detalles</button>
+              <div id="detailsCredito" class="details" style="display: none;">
+                <h4>Detalles adicionales</h4>
+                <ul>
+                  <li>Pago de tarjeta: $200,000 CLP el 01/07/2024</li>
+                  <li>Compras recientes: $150,000 CLP en tecnología</li>
+                  <li>Cargos recurrentes: $50,000 CLP en servicios de streaming</li>
+                </ul>
+                <div class="payment-options">
+                  <h4>Opciones de Pago</h4>
+                  <button class="btn" onclick="alert('Pago de tarjeta realizado!')">Pagar Tarjeta</button>
+                  <button class="btn" onclick="alert('Transferencia de fondos realizada!')">Transferir Fondos</button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <!-- Cuenta de Ahorro -->
+        <div class="col-lg-4">
+          <mat-card class="b-1 shadow-none">
+            <mat-card-header>
+              <mat-card-title>Cuenta de Ahorro</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="b-t-1">
+              <p>Información de la Cuenta de Ahorro</p>
+              <div class="stat-card">
+                <span class="stat-title">Saldo:</span>
+                <span class="stat-value">$500,000 CLP</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-title">Intereses acumulados:</span>
+                <span class="stat-value">$5,000 CLP (último mes)</span>
+              </div>
+              <button class="btn" onclick="toggleDetails('detailsAhorro')">Ver más detalles</button>
+              <div id="detailsAhorro" class="details" style="display: none;">
+                <h4>Detalles adicionales</h4>
+                <ul>
+                  <li>Depósito inicial: $200,000 CLP</li>
+                  <li>Intereses mensuales: $5,000 CLP</li>
+                  <li>Retiros recientes: $50,000 CLP</li>
+                </ul>
+                <div class="payment-options">
+                  <h4>Opciones de Pago</h4>
+                  <button class="btn" onclick="alert('Depósito realizado exitosamente!')">Realizar Depósito</button>
+                  <button class="btn" onclick="alert('Transferencia realizada exitosamente!')">Transferir Fondos</button>
+                  <button class="btn" onclick="alert('Pago de servicios realizado!')">Pagar Servicios</button>
+                </div>
+              </div>
+            </mat-card-content>
+          </mat-card>
+        </div>
+        
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Detalles de Tarjetas -->
+  <div class="card-details">
+    <h3>Detalles de Tarjetas</h3>
+    <div class="row">
+      <div class="col-lg-6">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Tarjeta de Débito</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <p>Número de Tarjeta: 1234-5678-9012-3456</p>
+            <p>Fecha de Vencimiento: 12/25</p>
+            <p>Código de Seguridad: 123</p>
+            <button class="btn" onclick="alert('Tarjeta de Débito bloqueada!')">Bloquear Tarjeta</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-6">
+        <mat-card class="b-1 shadow-none">
+          <mat-card-header>
+            <mat-card-title>Tarjeta de Crédito</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="b-t-1">
+            <p>Número de Tarjeta: 9876-5432-1098-7654</p>
+            <p>Fecha de Vencimiento: 09/27</p>
+            <p>Código de Seguridad: 456</p>
+            <button class="btn" onclick="alert('Tarjeta de Crédito bloqueada!')">Bloquear Tarjeta</button>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleDetails(id) {
+    var details = document.getElementById(id);
+    if (details.style.display === "none") {
+      details.style.display = "block";
+    } else {
+      details.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

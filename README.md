@@ -1,27 +1,45 @@
-# TestApp
+# Proyecto ejemplo para Aplicaciones y Tecnologías Web
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
+## Resumen
 
-## Development server
+Este proyecto ha sido creado con la finalidad de presentar un ejemplo de ejecución de un proyecto web con una arquitectura básica de cliente servidor utilizando las tencologías Angular para el frontend y Django con Django Rest Framework para el backend
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Sumario
 
-## Code scaffolding
+* Clonación del proyecto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* [Instructivo de ejecución del Docker Compose](#ejecución-en-docker-compose)
 
-## Build
+* [Instructivo de ejecución del Frontend](src/frontend/README.md)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* [Instructivo de ejecución del Backend](src/backend/README.md)
 
-## Running unit tests
+## Clonación del proyecto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Buscar un directorio en el equipo, abrir cmd o Powershell y escribir lo siguiente:
+`git clone https://github.com/rodoaravena/proyecto_ATW.git`
 
-## Running end-to-end tests
+    Ejemplo:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+    ```(bash)
+    C:\Users\estudiante\directorio\en\el\equipo> git clone https://github.com/rodoaravena/proyecto_ATW.git    
+    ```
 
-## Further help
+2. Finalizada la clonación escribir `cd proyecto_ATW` para ingresar la carpeta y presionar `Enter`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Luego realizar los pasos de ejecución en [Docker](#ejecución-en-docker-compose) o por separado el [Frontend](src/frontend/README.md) y [Backend](src/backend/README.md#ejecutar-proyecto)
+
+## Ejecución en Docker Compose
+
+**Nota:** Si se utiliza esta opción no realizar las intrucciones para el frontend y el backend.
+
+1. Instalar Docker, seguir estas instrucciones según el Sistema Operativo a utilizar:
+    * [Instrucciones de instalación para Windows](https://docs.docker.com/desktop/install/windows-install/)
+    * [Instrucciones de instalación para Linux](https://docs.docker.com/desktop/install/linux-install/)
+    * [Instrucciones de instalación para Mac](https://docs.docker.com/desktop/install/mac-install/)
+
+2. Luego, escribir el siguiente comando `docker compose build --no-cache` y presionar `Enter`
+
+3. Finalizada la construcción de las imagenes escribir el siguiente `docker compose up` y presionar `Enter`
+
+4. Si todo funciona a la perfección, docker ejecutará los contenedores y sólo debería abrir el navegador e ingresar a `http://localhost:4200` para ver el frontend y a `http://localhost:8000/admin` para ver el administrador de django en el backend
